@@ -31,6 +31,7 @@ class RedactingFormatter(logging.Formatter):
 
     def __init__(self, fields: List[str] = None):
         super(RedactingFormatter, self).__init__(self.FORMAT)
+        self.fields = fields if fields else []
 
     def format(self, record: logging.LogRecord) -> str:
         """
