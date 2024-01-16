@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""A Basic Authentication class"""
+"""
+Basic Authentication class that authenticate a user
+"""
 
 from flask import request
 
