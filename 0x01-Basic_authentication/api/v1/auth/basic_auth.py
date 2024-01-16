@@ -5,7 +5,6 @@ from api.v1.auth.auth import Auth
 from base64 import b64decode
 
 
-
 class BasicAuth(Auth):
     """BasicAuth class
     """
@@ -21,11 +20,10 @@ class BasicAuth(Auth):
         if authorization_header[:6] != "Basic ":
             return None
         return authorization_header[6:]
-    
 
     def decode_base64_authorization_header(self,
-                                          base64_authorization_header: str
-                                          ) -> str:
+                                           base64_authorization_header:
+                                           str) -> str:
         """Returns the decoded value of a Base64 string
         """
         if base64_authorization_header is None:
@@ -36,4 +34,3 @@ class BasicAuth(Auth):
             return b64decode(base64_authorization_header).decode('utf-8')
         except Exception:
             return None
-
