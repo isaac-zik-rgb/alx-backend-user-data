@@ -41,7 +41,7 @@ def before_request():
         abort(401)
 
     if auth.current_user(request) is None:
-        forbidden(403)
+        abort(403)
 
 
 
