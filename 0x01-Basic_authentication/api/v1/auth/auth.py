@@ -22,7 +22,6 @@ class Auth:
         else:
             return True
 
-
     def authorization_header(self, request=None) -> str:
         """ an authorization header method that returns the request object
         """
