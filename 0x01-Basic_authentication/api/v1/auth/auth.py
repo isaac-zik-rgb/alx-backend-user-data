@@ -15,7 +15,7 @@ class Auth:
         This function determines whether authentication is
         required for a specific path
         """
-        if path is None or len(excluded_paths) == 0 or excluded_paths is None:
+        if excluded_paths is None or len(excluded_paths) == 0 or path is None:
             return True
         elif any(path.startswith(excluded) for excluded in excluded_paths):
             return False
