@@ -29,9 +29,9 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """ an authorization header method that returns the request object
         """
-        return request
+        return None
 
     def current_user(self, request=None) -> TypeVar('User'):
         """This function returns the current user that is authorized
         """
-        return request
+        return None
