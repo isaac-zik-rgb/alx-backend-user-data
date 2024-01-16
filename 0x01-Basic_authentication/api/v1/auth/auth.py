@@ -4,7 +4,7 @@ Basic Authentication class that authenticate a user
 """
 
 from flask import request
-
+from typing import List
 
 class Auth:
     """A Basic Auth Class"""
