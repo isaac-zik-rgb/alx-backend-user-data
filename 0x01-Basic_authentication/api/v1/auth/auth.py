@@ -15,7 +15,13 @@ class Auth:
         This function determines whether authentication is
         required for a specific path
         """
-        return False
+        if path is None or len(excluded_paths) == 0 or excluded_paths is None:
+            return True
+        elif any(path.startswith(excluded) for excluded in excluded_paths):
+            return False
+        else:
+            return True
+
 
     def authorization_header(self, request=None) -> str:
         """ an authorization header method that returns the request object
