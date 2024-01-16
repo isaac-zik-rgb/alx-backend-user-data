@@ -2,9 +2,8 @@
 """
 Basic Authentication class that authenticate a user
 """
-
 from flask import request
-from typing import List
+from typing import List, TypeVar
 
 class Auth:
     """A Basic Auth Class"""
@@ -13,26 +12,7 @@ class Auth:
         """
         Check if authentication is required for a given path.
         This function determines whether authentication is
-        required for a specific
-        path, taking into account a list of excluded paths
-        where authentication is not enforced.
-        Parameters:
-             - path (str): The path for which authentication
-             requirement is being checked.
-             - excluded_paths (List[str]): A list of paths where
-             authentication is not enforced.
-             Returns:
-             bool: True if authentication is required for the
-             given path, False otherwise.
-        Example:
-             ```
-             auth_required = require_auth('/secured/resource',
-             excluded_paths=['/public', '/unsecured'])
-             if auth_required:
-             # Perform authentication logic
-             else:
-             # Authentication is not required for the given path
-             ```
+        required for a specific path
         """
         return False
 
