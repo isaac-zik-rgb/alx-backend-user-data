@@ -20,9 +20,12 @@ class Auth:
 
         if path[-1] != '/':
             path += '/'
-
+        if path[-1] == '*' and path[:-1] not in excluded_paths:
+            return True
         if path not in excluded_paths:
             return True
+        if path in excluded_paths:
+            return False
 
         return False
 
