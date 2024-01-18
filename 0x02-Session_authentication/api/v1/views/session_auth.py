@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A Session Authentication routes"""
 from flask import jsonify
-from api.v1.app import app_views
+from api.v1.views import app_views
 from models.user import User
 from os import getenv
 
