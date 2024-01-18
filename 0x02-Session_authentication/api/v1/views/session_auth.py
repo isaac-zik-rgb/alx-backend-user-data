@@ -6,6 +6,7 @@ from api.v1.views import app_views
 import os
 from flask import request
 from models.user import User
+from flask import abort
 
 
 @app_views.route("/auth_session/login", methods=['POST'], strict_slashes=False)
@@ -33,3 +34,16 @@ def auth_session():
             resp.set_cookie(session_name, session_id)
             return resp
     return jsonify({"error": "wrong password"}), 401
+
+
+@app_views.route("/auth_session/logout", methods=['DELETE'],    strict_slashes=False)
+def auth_session_logout():
+    """
+    Handle user logout
+    Return:
+        empty dictionary
+    """
+    from api.v1.app import auth
+    if auth.destroy_session(request) is False:
+        abort(404)
+    return jsonify({}), 200
