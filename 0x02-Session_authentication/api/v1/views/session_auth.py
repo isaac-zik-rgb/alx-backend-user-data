@@ -3,7 +3,7 @@
 from flask import jsonify
 from api.v1.views import app_views
 
-from os import os
+from os
 from flask import request
 from models.user import User
 
