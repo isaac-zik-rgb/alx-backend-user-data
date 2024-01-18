@@ -4,9 +4,9 @@ Basic Authentication class that authenticate a user
 """
 from flask import request
 from typing import List, TypeVar
-from api.v1.app import SESSION_NAME
+import os
 
-
+SESSION_NAME = os.getenv('SESSION_NAME')
 class Auth:
     """A Basic Auth Class"""
 
