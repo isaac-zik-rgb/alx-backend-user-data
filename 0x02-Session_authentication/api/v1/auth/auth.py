@@ -7,6 +7,8 @@ from typing import List, TypeVar
 import os
 
 SESSION_NAME = os.getenv('SESSION_NAME')
+
+
 class Auth:
     """A Basic Auth Class"""
 
@@ -42,7 +44,7 @@ class Auth:
         """This function returns the current user that is authorized
         """
         return None
-    
+
     def session_cookie(self, request=None):
         """Returns a cookie value from a request
         """
