@@ -26,4 +26,4 @@ class SessionAuth(Auth):
         """User ID for session ID"""
         if session_id is None or type(session_id) != str:
             return None
-        return SessionAuth.user_id_by_session_id.get(SESSION_NAME)
+        return SessionAuth.user_id_by_session_id.get("_session_id")
