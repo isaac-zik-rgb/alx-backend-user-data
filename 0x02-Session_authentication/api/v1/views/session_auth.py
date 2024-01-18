@@ -7,6 +7,7 @@ import os
 from flask import request
 from models.user import User
 
+
 @app_views.route("/auth_session/login", methods=['POST'], strict_slashes=False)
 def auth_session():
     """
