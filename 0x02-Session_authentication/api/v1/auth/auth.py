@@ -41,3 +41,11 @@ class Auth:
         """This function returns the current user that is authorized
         """
         return None
+    
+    def session_cookie(self, request=None):
+        """Returns a cookie value from a request
+        """
+        if request is None:
+            return None
+
+        return request.cookies.get('session_id')

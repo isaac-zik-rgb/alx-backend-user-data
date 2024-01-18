@@ -3,6 +3,10 @@
 
 from api.v1.auth.auth import Auth
 import uuid
+from os import getenv
+import os
+
+SESSION_NAME = getenv('SESSION_NAME')
 
 
 class SessionAuth(Auth):
@@ -23,4 +27,4 @@ class SessionAuth(Auth):
         """User ID for session ID"""
         if session_id is None or type(session_id) != str:
             return None
-        return SessionAuth.user_id_by_session_id.get(session_id)
+        return SessionAuth.user_id_by_session_id.get(SESSION_NAME)
