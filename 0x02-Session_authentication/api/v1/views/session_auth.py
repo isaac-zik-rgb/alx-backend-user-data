@@ -3,28 +3,32 @@
 from flask import jsonify
 from api.v1.views import app_views
 
-from os import getenv
+from os import os
 from flask import request
 from models.user import User
 
 @app_views.route("/auth_session/login", methods=['POST'], strict_slashes=False)
-def auth_session() -> str:
-    """Handle login route"""
+def auth_session():
+    """
+    Handle user login
+    Return:
+        dictionary representation of user if found else error message
+    """
     email = request.form.get('email')
     password = request.form.get('password')
-    if not email:
+    if email is None or email == '':
         return jsonify({"error": "email missing"}), 400
-    if not password:
+    if password is None or password == '':
         return jsonify({"error": "password missing"}), 400
     users = User.search({"email": email})
-    if not users:
-        return jsonify({"error": "no user found for this emil"}), 404
+    if not users or users == []:
+        return jsonify({"error": "no user found for this email"}), 404
     for user in users:
-        from api.v1.app import auth
-        if not user.is_valid_password(password):
-            return jsonify({"error": "wrong password"}), 401
-        else:
+        if user.is_valid_password(password):
+            from api.v1.app import auth
             session_id = auth.create_session(user.id)
-            response = jsonify(user.to_json())
-            response.set_cookie(getenv('SESSION_NAME'), session_id)
-            return response
+            resp = jsonify(user.to_json())
+            session_name = os.getenv('SESSION_NAME')
+            resp.set_cookie(session_name, session_id)
+            return resp
+    return jsonify({"error": "wrong password"}), 401
