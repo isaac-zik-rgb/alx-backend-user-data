@@ -3,10 +3,9 @@
 
 from api.v1.auth.auth import Auth
 import uuid
-from os import getenv
-import os
+from api.v1.auth.session_exp_auth import SESSION_NAME
 
-SESSION_NAME = getenv('SESSION_NAME')
+
 
 
 class SessionAuth(Auth):
