@@ -1,3 +1,6 @@
 #!/usr/bin/env python3
-"""A Session Authentication routes"""
-from api.v1.views.session_auth import session_auth
+"""add session auth"""
+from api.v1.views.session_auth import *
+
+
+app_views.route("/auth_session/logout", methods=['DELETE'], strict_slashes=False)(session_login)
