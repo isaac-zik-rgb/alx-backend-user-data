@@ -4,6 +4,7 @@ Basic Authentication class that authenticate a user
 """
 from flask import request
 from typing import List, TypeVar
+from api.v1.app import SESSION_NAME
 
 
 class Auth:
@@ -48,4 +49,4 @@ class Auth:
         if request is None:
             return None
 
-        return request.cookies.get('session_id')
+        return request.cookies.get(SESSION_NAME)

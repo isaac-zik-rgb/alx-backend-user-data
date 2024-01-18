@@ -3,7 +3,7 @@
 
 from api.v1.auth.auth import Auth
 import uuid
-from api.v1.auth.session_exp_auth import SESSION_NAME
+
 
 
 
