@@ -32,6 +32,14 @@ class DB:
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
+        """
+         Create a User object and save it to the database
+        Args:
+            email (str): user's email address
+            hashed_password (str): password hashed by bcrypt's hashpw
+        Return:
+            Newly created User object
+        """
         user = User(email=email, password=hashed_password)
         self._session.add(user)
         self.__session.commit(user)
